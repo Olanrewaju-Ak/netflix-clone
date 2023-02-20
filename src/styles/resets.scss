@@ -1,0 +1,53 @@
+@import "./partials/fonts";
+
+*,
+html,
+body {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "roboto", sans-serif;
+	scroll-behavior: smooth;
+	max-width: 100vw;
+	overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+/* remove default margins for more control of spacing */
+h1,
+h2,
+h3,
+p {
+	margin: 0;
+	padding: 0;
+}
+
+a,
+ul,
+li,
+label,
+textarea {
+	list-style: none;
+	text-decoration: none;
+	margin: 0;
+	padding: 0;
+}
+textarea,
+input {
+	font-family: inherit;
+}
+
+select {
+	font-family: "roboto", sans-serif;
+}
+
+fieldset {
+	padding: 0;
+	border: none;
+	margin: 0;
+}

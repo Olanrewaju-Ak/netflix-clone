@@ -1,0 +1,76 @@
+@import "./partials/mixins";
+@import "./partials/colors";
+
+.main {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	width: 100vw;
+	height: 100vh;
+	background: linear-gradient(rgba(41, 41, 41, 0.9), rgba(46, 46, 46, 0.9)),
+		url(../assets/hero-bg.jpg);
+}
+
+.description {
+	font-size: 0.85rem;
+	color: #fff;
+	width: 52%;
+
+	&_title {
+		@include desktopPageHeader;
+		overflow-y: hidden;
+	}
+	&_subtitle {
+		@include desktopSubheader;
+		margin: 1rem 0;
+	}
+	&_text {
+		@include desktopBodyLarge;
+		padding-bottom: 1.25rem;
+	}
+}
+
+.form {
+	width: 50%;
+	display: flex;
+
+	&_input {
+		width: 70%;
+		height: 3.75rem;
+		padding: 0.625rem 0.625rem 0;
+		&::placeholder {
+			margin: 0;
+			font-family: "roboto";
+			font-size: 1rem;
+			color: $gray-color;
+		}
+	}
+
+	&_btn {
+		background-color: #f40612;
+		width: 30%;
+		height: 3.75rem;
+		font-size: 1.625rem;
+		color: white;
+		border: none;
+	}
+
+	&_icon {
+		color: white;
+		height: 20px;
+		width: 20px;
+	}
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+	.description {
+		font-size: 0.8rem;
+	}
+}
+
+/* Tablet and Smaller Desktop */
+@media (min-width: 701px) and (max-width: 1120px) {
+}
