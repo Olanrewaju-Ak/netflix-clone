@@ -4,8 +4,11 @@ import styles from "@/styles/Home.module.scss";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import { useSession, signIn, signOut } from "next-auth/react";
 
 export default function Home() {
+	const { data: session } = useSession();
+
 	return (
 		<>
 			<Head>
@@ -15,6 +18,18 @@ export default function Home() {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<main className={styles.main}>
+				{session && (
+					<>
+						Signed in as {session.user.email} <br />
+						<button onClick={() => signOut()}>Sign out</button>
+					</>
+				)}
+				{!session && (
+					<>
+						Not signed in <br />
+						<button onClick={() => signIn()}>Sign in</button>
+					</>
+				)}
 				<div className={styles.description}>
 					<h1 className={styles.description_title}>
 						Unlimited movies, TV shows, and more.
@@ -28,7 +43,7 @@ export default function Home() {
 				</div>
 				<div className={styles.form}>
 					<input type="text" placeholder="Email address" className={styles.form_input} />
-					<button className={styles.form_btn}>
+					<button onClick={() => signIn()} className={styles.form_btn}>
 						Get Started
 						<FontAwesomeIcon icon={faChevronRight} className={styles.form_icon} />
 					</button>
